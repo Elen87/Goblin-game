@@ -2,9 +2,6 @@
 
 [![Deploy to GitHub Pages](https://github.com/Elen87/Goblin-game/actions/workflows/deploy.yml/badge.svg)](https://github.com/Elen87/Goblin-game/actions/workflows/deploy.yml)
 
-## 🌐 Play Online
-🔗 [https://elen87.github.io/Goblin-game/](https://elen87.github.io/Goblin-game/)
-
 
 Правила сдачи задания:
 
