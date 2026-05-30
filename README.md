@@ -1,12 +1,17 @@
 # Домашнее задание к занятию "3.Обработка событий"
-[![Deploy to GitHub Pages](https://github.com/YOUR_USERNAME/goblin-game/actions/workflows/deploy.yml/badge.svg)](https://github.com/YOUR_USERNAME/goblin-game/actions/workflows/deploy.yml)
+
+[![Deploy to GitHub Pages](https://github.com/Elen87/Goblin-game/actions/workflows/deploy.yml/badge.svg)](https://github.com/Elen87/Goblin-game/actions/workflows/deploy.yml)
+
+## 🌐 Play Online
+🔗 [https://elen87.github.io/Goblin-game/](https://elen87.github.io/Goblin-game/)
+
 
 Правила сдачи задания:
 
 1. **Важно**: в рамках этого ДЗ нужно использовать менеджер пакетов yarn (а значит, никакого `package-lock.json` в репозитории быть не должно)
-1. **Важно**: всё должно собираться через Webpack (включая картинки и стили) и выкладываться на Github Pages через GitHub Actions [Инструкция](https://disk.360.yandex.ru/i/OCU8y022i92XdA).
-1. В README.md должен быть размещён бейджик сборки и ссылка на Github Pages
-1. В качестве результата присылайте проверяющему ссылки на ваши GitHub-проекты
+2. **Важно**: всё должно собираться через Webpack (включая картинки и стили) и выкладываться на Github Pages через GitHub Actions [Инструкция](https://disk.360.yandex.ru/i/OCU8y022i92XdA).
+3. В README.md должен быть размещён бейджик сборки и ссылка на Github Pages
+4. В качестве результата присылайте проверяющему ссылки на ваши GitHub-проекты
 
 ---
 
