@@ -1,6 +1,10 @@
 # Домашнее задание к занятию "3.Обработка событий"
 
 [![Deploy to GitHub Pages](https://github.com/Elen87/Goblin-game/actions/workflows/deploy.yml/badge.svg)](https://github.com/Elen87/Goblin-game/actions/workflows/deploy.yml)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-green)](https://elen87.github.io/Goblin-game/)
+
+
+🔗 [https://elen87.github.io/Goblin-game/](https://elen87.github.io/Goblin-game/)
 
 
 Правила сдачи задания:

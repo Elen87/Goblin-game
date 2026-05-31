@@ -16,6 +16,7 @@ export default class Game {
     this.isRunning = false;
     this.intervalId = null;
     this.boardElement = null;
+    this.lastPosition = -1;  // Для отслеживания последней позиции
   }
 
   init(boardElement) {
@@ -49,6 +50,7 @@ export default class Game {
     if (this.isRunning) return;
     this.isRunning = true;
     this.score.reset();
+    this.lastPosition = -1;
     this.showGoblinRandom();
     
     this.intervalId = setInterval(() => {
@@ -72,9 +74,25 @@ export default class Game {
     this.start();
   }
 
+  getRandomPositionWithoutRepeat() {
+    const totalCells = this.board.cells.length;
+    if (totalCells === 0) return 0;
+    
+    let newPosition;
+    do {
+      newPosition = Math.floor(Math.random() * totalCells);
+    } while (newPosition === this.lastPosition && totalCells > 1);
+    
+    this.lastPosition = newPosition;
+    return newPosition;
+  }
+
   showGoblinRandom() {
     if (!this.isRunning) return;
-    const randomCell = this.board.getRandomCell();
+    
+    const randomIndex = this.getRandomPositionWithoutRepeat();
+    const randomCell = this.board.cells[randomIndex];
+    
     if (randomCell) {
       this.goblin.show(randomCell);
     }
@@ -82,9 +100,10 @@ export default class Game {
 
   gameOver() {
     this.stop();
-    setTimeout(() => {
-      alert(`🎮 Игра окончена!\n🏆 Ваш счёт: ${this.score.getScore()}`);
-    }, 50);
+    // Вызываем колбэк вместо alert
+    if (this.score.onGameEnd) {
+      this.score.onGameEnd(this.score.getScore());
+    }
   }
 
   destroy() {
