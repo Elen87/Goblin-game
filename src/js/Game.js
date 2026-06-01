@@ -23,12 +23,6 @@ export default class Game {
     this.board.init(boardElement);
     this.score.init();
     this.setupCallbacks();
-    this.setupImage();
-  }
-
-  setupImage() {
-    // Используем онлайн изображение
-    this.goblin.setImage('https://raw.githubusercontent.com/netology-code/ahj-homeworks/master/dom/pic/goblin.png');
   }
 
   setupCallbacks() {
@@ -52,19 +46,24 @@ export default class Game {
 
   start() {
     if (this.isRunning) return;
+    
     this.isRunning = true;
     this.score.reset();
     this.lastPosition = -1;
     
-    // Принудительно создаем элемент гоблина заново
-    if (this.goblin.element) {
-      this.goblin.destroy();
-    }
-    this.goblin.createElement();
-    this.setupImage();
+    // Пересоздаём гоблина для нового цикла игры
+    this.goblin.destroy();
+    this.goblin = new Goblin();
+    this.setupCallbacks();
     
-    this.showGoblinRandom();
+    // Показываем гоблина в случайной позиции
+    setTimeout(() => {
+      if (this.isRunning) {
+        this.showGoblinRandom();
+      }
+    }, 100);
     
+    // Запускаем интервал
     this.intervalId = setInterval(() => {
       if (this.isRunning && !this.goblin.isVisible) {
         this.showGoblinRandom();
@@ -90,8 +89,11 @@ export default class Game {
     if (totalCells === 0) return 0;
     
     let newPosition;
+    let attempts = 0;
     do {
       newPosition = Math.floor(Math.random() * totalCells);
+      attempts++;
+      if (attempts > 100) break; // Защита от бесконечного цикла
     } while (newPosition === this.lastPosition && totalCells > 1);
     
     this.lastPosition = newPosition;
@@ -101,6 +103,7 @@ export default class Game {
   showGoblinRandom() {
     if (!this.isRunning) return;
     if (!this.board.cells.length) return;
+    if (!this.goblin) return;
     
     const randomIndex = this.getRandomPositionWithoutRepeat();
     const randomCell = this.board.cells[randomIndex];
