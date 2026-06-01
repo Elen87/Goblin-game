@@ -15,7 +15,7 @@ game.score.onGameEnd = (finalScore) => {
   modal.style.display = 'flex';
 };
 
-// Закрытие модального окна и перезапуск игры
+// Перезапуск игры из модального окна
 modalRestartBtn.addEventListener('click', () => {
   modal.style.display = 'none';
   game.reset();

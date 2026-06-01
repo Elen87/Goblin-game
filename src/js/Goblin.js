@@ -10,6 +10,7 @@ export default class Goblin {
 
   createElement() {
     this.element = document.createElement('img');
+    this.element.src = 'https://raw.githubusercontent.com/netology-code/ahj-homeworks/master/dom/pic/goblin.png';
     this.element.className = 'goblin';
     this.element.alt = 'Goblin';
     this.element.style.width = '80%';
@@ -44,7 +45,7 @@ export default class Goblin {
     }
     
     this.hide();
-    cell.appendChild(this.element);
+    cell.append(this.element);  // ✅ append вместо appendChild
     this.isVisible = true;
     
     this.timeoutId = setTimeout(() => {
